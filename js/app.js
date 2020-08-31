@@ -73,12 +73,21 @@ const hearts = [
     {"Dv": "King of Heart", "Av": 13},
     {"Dv": "Ace of Heart", "Av": 14},
 ]
-const Deck = {
+const deck = {
     deck : [],
 
     generateDeck(){
-        for(let i = 0; i <= spades.length; i++){
+        for(let i = 0; i < spades.length; i++){
             this.deck.push(spades[i])
+        }
+        for(let i = 0; i < diamonds.length; i++){
+            this.deck.push(diamonds[i])
+        }
+        for(let i = 0; i < clubs.length; i++){
+            this.deck.push(clubs[i])
+        }
+        for(let i = 0; i < hearts.length; i++){
+            this.deck.push(hearts[i])
         }
     }
 }
