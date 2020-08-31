@@ -15,8 +15,9 @@ class Player {
         this.hand = [];
     }
 
-    playCard(){
-        
+    playCard(index){
+        const playedCard = this.hand[index]
+        game.playAHand()
     }
 }
 
@@ -131,7 +132,26 @@ const deck = {
 // Keep track of points won - property
 // 
 
+const game = {
+    start(){
+        deck.generateDeck()
+        deck.shuffleCards()
+        for(i=1; i <=13; i++){
+            const drawnCard = deck.deck.shift()
+            const drawnCard2 = deck.deck.shift()
+            const drawnCard3 = deck.deck.shift()
+            const drawnCard4 = deck.deck.shift()
+            user.hand.push(drawnCard)
+            cpu1.hand.push(drawnCard2)
+            teammate.hand.push(drawnCard3)
+            cpu2.hand.push(drawnCard4)
+        }
+    },
 
+    playAHand(){
+
+    }
+}
 
 
 
