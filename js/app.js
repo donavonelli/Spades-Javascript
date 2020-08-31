@@ -7,6 +7,21 @@ console.log("Works")
 //play a card - Method
 //Keep track of points they have earned - property
 
+class Player {
+    constructor(name, team){
+        this.name = name;
+        this.team = team;
+        this.points = 0;
+        this.hand = [];
+    }
+
+    playCard(){
+        
+    }
+}
+
+
+
 /*Deck*/
 //Have an array of all the cards -property
 //Av stands for actual value Dv stands for display value
@@ -75,7 +90,9 @@ const hearts = [
 ]
 const deck = {
     deck : [],
-
+/**
+ * @description Pulls all of the data out of the 4 card suit arrays and brings it into one array
+ */
     generateDeck(){
         for(let i = 0; i < spades.length; i++){
             this.deck.push(spades[i])
@@ -89,11 +106,37 @@ const deck = {
         for(let i = 0; i < hearts.length; i++){
             this.deck.push(hearts[i])
         }
+    },
+/**
+ * @author Dalton
+ * @description shuffles the cards in the deck
+ */
+    shuffleCards(){
+        let length = this.deck.length;
+    let element;
+    let index;
+    while (length) {
+      index = Math.floor(Math.random() * length--);
+      element = this.deck[length];
+      this.deck[length] = this.deck[index];
+      this.deck[index] = element;
+    }
     }
 }
+
 
 /*Game*/
 //Start of game- deal out all cards to all four players - Method
 //Compare the different values on each card to determine a winner - Method
 // Keep track of points won - property
 // 
+
+
+
+
+
+
+const user = new Player("Don", "A")
+const cpu1 = new Player("CPU1", "B")
+const teammate = new Player("Teammate", "A")
+const cpu2 = new Player("CPU2", "B")
