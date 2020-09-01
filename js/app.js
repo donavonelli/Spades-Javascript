@@ -26,12 +26,23 @@ class Ai extends Player {
         super(name,team);
     }
     playAiCard(){
+        // const randomNumber = Math.floor(Math.random() * Math.floor(13));
         const playedCard = this.hand[0] //for now cpu will choose first card  
+        const discardCard = this.hand.splice(0, 1)
+        this.discardPile += discardCard
         return playedCard
     }
 }
 
+const TeamA = {
+    score:  0
 
+}
+
+const TeamB = {
+    score: 0
+    
+}
 
 /*Deck*/
 //Have an array of all the cards -property
@@ -147,19 +158,17 @@ const game = {
         deck.generateDeck()
         deck.shuffleCards()
         game.dealCards()
+        game.playAHand()
     },
 
     playAHand(){
+        console.log(user.playCard(0), cpu1.playAiCard() ,teammate.playAiCard() ,cpu2.playAiCard())
         this.determineWinner()
-        user.playedCard
-        cpu1.playedCard
-        teammate.playedCard
-        cpu2.playedCard
     },
 
     determineWinner(){
-        if(cpu2.hand ===[]){
-
+        if(null){
+            console.log("End")
         }
     },
 
@@ -181,6 +190,6 @@ const game = {
 
 
 const user = new Player("Don", "A")
-const cpu1 = new Player("CPU1", "B")
-const teammate = new Player("Teammate", "A")
-const cpu2 = new Player("CPU2", "B")
+const cpu1 = new Ai("CPU1", "B")
+const teammate = new Ai("Teammate", "A")
+const cpu2 = new Ai("CPU2", "B")
