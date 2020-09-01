@@ -24,6 +24,10 @@ class Player {
 class Ai extends Player {
     constructor(name, team){
         super(name,team);
+        this.heartsInHand = []
+        this.clubsInHand = []
+        this.diamondsInHand = []
+        this.spadesInHand = []
     }
     playAiCard(){
         // const randomNumber = Math.floor(Math.random() * Math.floor(13));
@@ -32,7 +36,41 @@ class Ai extends Player {
         this.discardPile += discardCard
         return playedCard
     }
+
+    sortHand(){
+        for(i=0; i <= this.hand.length; i++){
+            if(this.hand[i].Suit === "heart"){
+                let heart = this.hand[i]
+                this.heartsInHand.push(heart)
+            } else if (this.hand[i].Suit === "diamond"){
+                this.diamondsInHand.push(this.hand[i])
+            } else if (this.hand[i].Suit === "club"){
+                this.clubsInHand.push(this.hand[i])
+            } else if (this.hand[i].Suit === "spade"){
+                this.spadesInHand.push(this.hand[i])
+            }
+        }
+    }
+
+    Computer1(){
+        if(user.playCard(0).Suit === "heart"){
+            const heart = []
+            for (i = 0; i<= this.hand.length; i++){
+                if(this.hand[i].Suit === "heart")
+                heart.push(this.hand[i])
+            }
+        } else if (user.playCard(0).Suit === "diamond") {
+            return "diamond was played"
+        }else if (user.playCard(0).Suit === "club") {
+            return "club was played"
+        } else if (user.playCard(0).Suit === "spade") {
+            return "spade was played"
+        } else {
+            return "Error"
+        }
+    }
 }
+
 
 const TeamA = {
     score:  0
@@ -158,11 +196,14 @@ const game = {
         deck.generateDeck()
         deck.shuffleCards()
         game.dealCards()
-        game.playAHand()
+        cpu1.sortHand()
+        teammate.sortHand()
+        cpu2.sortHand()
+        // game.playAHand()
     },
 
     playAHand(){
-        console.log(user.playCard(0), cpu1.playAiCard() ,teammate.playAiCard() ,cpu2.playAiCard())
+        // console.log(user.playCard(0), cpu1.Computer1() ,teammate.playAiCard() ,cpu2.playAiCard())
         this.determineWinner()
     },
 
