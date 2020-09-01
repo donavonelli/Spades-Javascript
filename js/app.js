@@ -17,7 +17,17 @@ class Player {
 
     playCard(index){
         const playedCard = this.hand[index]
-        game.playAHand()
+        return playedCard
+    }
+}
+
+class Ai extends Player {
+    constructor(name, team){
+        super(name,team);
+    }
+    playAiCard(){
+        const playedCard = this.hand[0] //for now cpu will choose first card  
+        return playedCard
     }
 }
 
@@ -27,67 +37,67 @@ class Player {
 //Have an array of all the cards -property
 //Av stands for actual value Dv stands for display value
 const spades = [
-    {"Dv": "2 of Spade", "Av": 2},
-    {"Dv": "3 of Spade", "Av": 3},
-    {"Dv": "4 of Spade", "Av": 4},
-    {"Dv": "5 of Spade", "Av": 5},
-    {"Dv": "6 of Spade", "Av": 6},
-    {"Dv": "7 of Spade", "Av": 7},
-    {"Dv": "8 of Spade", "Av": 8},
-    {"Dv": "9 of Spade", "Av": 9},
-    {"Dv": "10 of Spade", "Av": 10},
-    {"Dv": "Jack of Spade", "Av": 11},
-    {"Dv": "Queen of Spade", "Av": 12},
-    {"Dv": "King of Spade", "Av": 13},
-    {"Dv": "Ace of Spade", "Av": 14},
+    {"Dv": "2 of Spade", "Av": 2, "Suit": "spade"},
+    {"Dv": "3 of Spade", "Av": 3, "Suit": "spade"},
+    {"Dv": "4 of Spade", "Av": 4, "Suit": "spade"},
+    {"Dv": "5 of Spade", "Av": 5, "Suit": "spade"},
+    {"Dv": "6 of Spade", "Av": 6, "Suit": "spade"},
+    {"Dv": "7 of Spade", "Av": 7, "Suit": "spade"},
+    {"Dv": "8 of Spade", "Av": 8, "Suit": "spade"},
+    {"Dv": "9 of Spade", "Av": 9, "Suit": "spade"},
+    {"Dv": "10 of Spade", "Av": 10, "Suit": "spade"},
+    {"Dv": "Jack of Spade", "Av": 11, "Suit": "spade"},
+    {"Dv": "Queen of Spade", "Av": 12, "Suit": "spade"},
+    {"Dv": "King of Spade", "Av": 13, "Suit": "spade"},
+    {"Dv": "Ace of Spade", "Av": 14, "Suit": "spade"},
 ]
 
 const diamonds = [
-    {"Dv": "2 of Diamond", "Av": 2},
-    {"Dv": "3 of Diamond", "Av": 3},
-    {"Dv": "4 of Diamond", "Av": 4},
-    {"Dv": "5 of Diamond", "Av": 5},
-    {"Dv": "6 of Diamond", "Av": 6},
-    {"Dv": "7 of Diamond", "Av": 7},
-    {"Dv": "8 of Diamond", "Av": 8},
-    {"Dv": "9 of Diamond", "Av": 9},
-    {"Dv": "10 of Diamond", "Av": 10},
-    {"Dv": "Jack of Diamond", "Av": 11},
-    {"Dv": "Queen of Diamond", "Av": 12},
-    {"Dv": "King of Diamond", "Av": 13},
-    {"Dv": "Ace of Diamond", "Av": 14},
+    {"Dv": "2 of Diamond", "Av": 2, "Suit": "diamond"},
+    {"Dv": "3 of Diamond", "Av": 3, "Suit": "diamond"},
+    {"Dv": "4 of Diamond", "Av": 4, "Suit": "diamond"},
+    {"Dv": "5 of Diamond", "Av": 5, "Suit": "diamond"},
+    {"Dv": "6 of Diamond", "Av": 6, "Suit": "diamond"},
+    {"Dv": "7 of Diamond", "Av": 7, "Suit": "diamond"},
+    {"Dv": "8 of Diamond", "Av": 8, "Suit": "diamond"},
+    {"Dv": "9 of Diamond", "Av": 9, "Suit": "diamond"},
+    {"Dv": "10 of Diamond", "Av": 10, "Suit": "diamond"},
+    {"Dv": "Jack of Diamond", "Av": 11, "Suit": "diamond"},
+    {"Dv": "Queen of Diamond", "Av": 12, "Suit": "diamond"},
+    {"Dv": "King of Diamond", "Av": 13, "Suit": "diamond"},
+    {"Dv": "Ace of Diamond", "Av": 14, "Suit": "diamond"},
 ]
 
 const clubs = [
-    {"Dv": "2 of Club", "Av": 2},
-    {"Dv": "3 of Club", "Av": 3},
-    {"Dv": "4 of Club", "Av": 4},
-    {"Dv": "5 of Club", "Av": 5},
-    {"Dv": "6 of Club", "Av": 6},
-    {"Dv": "7 of Club", "Av": 7},
-    {"Dv": "8 of Club", "Av": 8},
-    {"Dv": "9 of Club", "Av": 9},
-    {"Dv": "10 of Club", "Av": 10},
-    {"Dv": "Jack of Club", "Av": 11},
-    {"Dv": "Queen of Club", "Av": 12},
-    {"Dv": "King of Club", "Av": 13},
-    {"Dv": "Ace of Club", "Av": 14},
+    {"Dv": "2 of Club", "Av": 2, "Suit": "club"},
+    {"Dv": "3 of Club", "Av": 3, "Suit": "club"},
+    {"Dv": "4 of Club", "Av": 4, "Suit": "club"},
+    {"Dv": "5 of Club", "Av": 5, "Suit": "club"},
+    {"Dv": "6 of Club", "Av": 6, "Suit": "club"},
+    {"Dv": "7 of Club", "Av": 7, "Suit": "club"},
+    {"Dv": "8 of Club", "Av": 8, "Suit": "club"},
+    {"Dv": "9 of Club", "Av": 9, "Suit": "club"},
+    {"Dv": "10 of Club", "Av": 10, "Suit": "club"},
+    {"Dv": "Jack of Club", "Av": 11, "Suit": "club"},
+    {"Dv": "Queen of Club", "Av": 12, "Suit": "club"},
+    {"Dv": "King of Club", "Av": 13, "Suit": "club"},
+    {"Dv": "Ace of Club", "Av": 14, "Suit": "club"},
 ]
 
 const hearts = [
-    {"Dv": "2 of Heart", "Av": 2},
-    {"Dv": "3 of Heart", "Av": 3},
-    {"Dv": "4 of Heart", "Av": 4},
-    {"Dv": "5 of Heart", "Av": 5},
-    {"Dv": "6 of Heart", "Av": 6},
-    {"Dv": "7 of Heart", "Av": 7},
-    {"Dv": "8 of Heart", "Av": 8},
-    {"Dv": "9 of Heart", "Av": 9},
-    {"Dv": "10 of Heart", "Av": 10},
-    {"Dv": "Jack of Heart", "Av": 11},
-    {"Dv": "Queen of Heart", "Av": 12},
-    {"Dv": "King of Heart", "Av": 13},
-    {"Dv": "Ace of Heart", "Av": 14},
+    {"Dv": "2 of Heart", "Av": 2, "Suit": "heart"},
+    {"Dv": "3 of Heart", "Av": 3, "Suit": "heart"},
+    {"Dv": "4 of Heart", "Av": 4, "Suit": "heart"},
+    {"Dv": "5 of Heart", "Av": 5, "Suit": "heart"},
+    {"Dv": "6 of Heart", "Av": 6, "Suit": "heart"},
+    {"Dv": "7 of Heart", "Av": 7, "Suit": "heart"},
+    {"Dv": "8 of Heart", "Av": 8, "Suit": "heart"},
+    {"Dv": "9 of Heart", "Av": 9, "Suit": "heart"},
+    {"Dv": "10 of Heart", "Av": 10, "Suit": "heart"},
+    {"Dv": "Jack of Heart", "Av": 11, "Suit": "heart"},
+    {"Dv": "Queen of Heart", "Av": 12, "Suit": "heart"},
+    {"Dv": "King of Heart", "Av": 13, "Suit": "heart"},
+    {"Dv": "Ace of Heart", "Av": 14, "Suit": "heart"},
 ]
 const deck = {
     deck : [],
@@ -136,6 +146,24 @@ const game = {
     start(){
         deck.generateDeck()
         deck.shuffleCards()
+        game.dealCards()
+    },
+
+    playAHand(){
+        this.determineWinner()
+        user.playedCard
+        cpu1.playedCard
+        teammate.playedCard
+        cpu2.playedCard
+    },
+
+    determineWinner(){
+        if(cpu2.hand ===[]){
+
+        }
+    },
+
+    dealCards(){
         for(i=1; i <=13; i++){
             const drawnCard = deck.deck.shift()
             const drawnCard2 = deck.deck.shift()
@@ -146,10 +174,6 @@ const game = {
             teammate.hand.push(drawnCard3)
             cpu2.hand.push(drawnCard4)
         }
-    },
-
-    playAHand(){
-
     }
 }
 
