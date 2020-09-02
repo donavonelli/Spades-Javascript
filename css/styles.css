@@ -5,6 +5,7 @@ body {
 h1 {
     display: block;
     text-align: center;
+    font-size: 50px;
 }
 
 
@@ -27,6 +28,11 @@ h1 {
 #start {
     margin-bottom: 30px;
 }
+
+li {
+  text-align :center;
+}
+
 
 /**
  * Styles for CSS Playing Cards
@@ -493,6 +499,8 @@ h1 {
   margin: 0 0 1.5em 0;
   position: relative;
   clear: both;
+  top: 200px; /*Double check*/
+  left: 155px;  /*Double check*/
 }
 .playingCards ul.hand {
   margin-bottom: 3.5em;

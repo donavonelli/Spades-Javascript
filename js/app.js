@@ -136,7 +136,7 @@ class Ai extends Player {
                     this.discard(this.spadesInHand, i)
                     return losingSpade
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
+                    for(i = 0; i < this.heartsInHand.length; i++){
                     let heart = this.heartsInHand[i]
                     this.discard(this.heartsInHand, i)
                     return heart
@@ -252,8 +252,11 @@ class Ai extends Player {
                     this.discard(this.heartsInHand, i)
                     return losingHeart
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.heartsInHand.length; i++){
+                        let heart = this.heartsInHand[i]
+                        this.discard(this.heartsInHand, i)
+                        return heart
+                        }
             } 
         }
     }
@@ -315,7 +318,7 @@ class Ai extends Player {
                     this.discard(this.spadesInHand, i)
                     return losingSpade
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
+                    for(i = 0; i < this.heartsInHand.length; i++){
                     let heart = this.heartsInHand[i]
                     this.discard(this.heartsInHand, i)
                     return heart
@@ -388,7 +391,6 @@ const clubs = [
     {"Dv": "King of Club", "Av": 13, "Suit": "club"},
     {"Dv": "Ace of Club", "Av": 14, "Suit": "club"},
 ]
-
 const hearts = [
     {"Dv": "2 of Heart", "Av": 2, "Suit": "heart"},
     {"Dv": "3 of Heart", "Av": 3, "Suit": "heart"},
@@ -404,6 +406,7 @@ const hearts = [
     {"Dv": "King of Heart", "Av": 13, "Suit": "heart"},
     {"Dv": "Ace of Heart", "Av": 14, "Suit": "heart"},
 ]
+
 const deck = {
     deck : [],
 /**
@@ -511,10 +514,20 @@ const cpu2 = new Ai("CPU2", "B")
 
 
 /*Dom Manipulation */
+const CardTable = $(".playingCards ul.table")
+console.log(CardTable)
+CardTable.css("display", "none")
+
 const test = function () {
     console.log("Testing one two three")
     $startButton.remove()
     $rulesButton.remove()
+    CardTable.css("display", "block")
+    // const $createCardUl = $('<ul class = "table">')
+    // const $createLiUl = $('<li>')
+    // const $cardDiv = $("div").eq(2);
+    // $($createCardUl).append($createLiUl)
+    // $($cardDiv).append($createCardUl)
 }
 
 const rules = function () {
