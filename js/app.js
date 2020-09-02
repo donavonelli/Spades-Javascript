@@ -64,7 +64,7 @@ class Ai extends Player {
             for(i = 0; i < this.heartsInHand.length; i++){
                 if(this.heartsInHand[i].Av > game.currentUserCard.Av){
                 let winningHeart = this.heartsInHand[i]
-                // this.discard(this.heartsInHand, i)
+                //  this.discard(this.heartsInHand, i)
                 return winningHeart
                 }
                 }
