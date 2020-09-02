@@ -195,43 +195,71 @@ class Ai extends Player {
     }
     
     computer3(){
-        if(teammate.computer2.Suit === "heart"){
+        if(teammate.computer2().Suit === "heart"){
             for(i = 0; i < this.heartsInHand.length; i++){
-                if(this.heartsInHand[i].Av > teammate.computer2.Av){
-                return "Computer 1 wins hearts"
-                } else{
-                    return "Computer 1 lost hearts"
+                if(this.heartsInHand[i].Av > teammate.computer2().Av){
+                let winningHeart = this.heartsInHand[i]
+                // this.discard(this.heartsInHand, i)
+                return winningHeart
                 }
+                }
+            for(i = 0; i < this.heartsInHand.length; i++){
+                if (this.heartsInHand[i].Suit === "heart"){
+                    return this.heartsInHand[i]
+                } else {
+                    console.log("No hearts")
             } 
         }
-        if(teammate.computer2.Suit === "club"){
+    }
+        if(teammate.computer2().Suit === "club"){
             for(i = 0; i < this.clubsInHand.length; i++){
-                if(this.clubsInHand[i].Av > teammate.computer2.Av){
-                    return "Computer 1 wins clubs"
-                    } else{
-                        return "Computer 1 lost clubs"
-                    }
+                if(this.clubsInHand[i].Av > teammate.computer2().Av){
+                    let winningClub = this.clubsInHand[i]
+                // this.discard(this.clubsInHand, i)
+                return winningClub
+                    } 
             }
+            for(i = 0; i < this.clubsInHand.length; i++){
+                if (this.clubsInHand[i].Suit === "club"){
+                    return this.clubsInHand[i]
+                } else {
+                    console.log("No clubs")
+            } 
         }
-        if(teammate.computer2.Suit === "diamond"){
+        }
+        if(teammate.computer2().Suit === "diamond"){
             for(i = 0; i < this.diamondsInHand.length; i++){
-                if(this.diamondsInHand[i].Av > teammate.computer2.Av){
-                return "Computer 1 wins diamonds"
-                } else{
-                    return "Computer 1 lost diamonds"
-                }
+                if(this.diamondsInHand[i].Av > teammate.computer2().Av){
+                    let winningDiamond = this.diamondsInHand[i]
+                    // this.discard(this.diamondsInHand, i)
+                    return winningDiamond
+                } 
             }
+            for(i = 0; i < this.diamondsInHand.length; i++){
+                if (this.diamondsInHand[i].Suit === "diamond"){
+                    return this.diamondsInHand[i]
+                } else {
+                    console.log("No diamonds")
+            } 
         }
-        if(teammate.computer2.Suit === "spade"){
+        }
+        if(teammate.computer2().Suit === "spade"){
             for(i = 0; i < this.spadesInHand.length; i++){
-                if(this.spadesInHand[i].Av > teammate.computer2.Av){
-                return "Computer 1 wins spades"
-                } else{
-                    return "Computer 1 lost spades"
-                }
+                if(this.spadesInHand[i].Av > teammate.computer2().Av){
+                    let winningSpade = this.spadesInHand[i]
+                    // this.discard(this.spadesInHand, i)
+                    return winningSpade
+                } 
             }
+            for(i = 0; i < this.spadesInHand.length; i++){
+                if (this.spadesInHand[i].Suit === "spade"){
+                    return this.spadesInHand[i]
+                } else {
+                    console.log("No spades")
+            } 
         }
-            
+        }
+
     }
 }
 
@@ -409,6 +437,8 @@ const cpu2 = new Ai("CPU2", "B")
 /*Dom Manipulation */
 const test = function () {
     console.log("Testing one two")
+    $startButton.remove()
+    $rulesButton.remove()
 }
 
 
