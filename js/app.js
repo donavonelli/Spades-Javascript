@@ -60,17 +60,18 @@ class Ai extends Player {
 
     computer1(){
         if(game.currentUserCard.Suit === "heart"){
-            console.log('game.currentUserCard.Suit === "heart"')
             for(i = 0; i < this.heartsInHand.length; i++){
                 if(this.heartsInHand[i].Av > game.currentUserCard.Av){
                 let winningHeart = this.heartsInHand[i]
-                //  this.discard(this.heartsInHand, i)
+                this.discard(this.heartsInHand, i)
                 return winningHeart
                 }
                 }
             for(i = 0; i < this.heartsInHand.length; i++){
                 if (this.heartsInHand[i].Suit === "heart"){
-                    return this.heartsInHand[i]
+                    let losingHeart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return losingHeart
                 } else {
                     for(i = 0; i < this.spadesInHand.length; i++)
                     return this.spadesInHand[i]
@@ -78,55 +79,68 @@ class Ai extends Player {
         }
     }
         if(game.currentUserCard.Suit === "club"){
-            console.log('game.currentUserCard.Suit === "club"')
             for(i = 0; i < this.clubsInHand.length; i++){
                 if(this.clubsInHand[i].Av > game.currentUserCard.Av){
                     let winningClub = this.clubsInHand[i]
-                // this.discard(this.clubsInHand, i)
-                return winningClub
+                    this.discard(this.clubsInHand, i)
+                    return winningClub
                     } 
             }
             for(i = 0; i < this.clubsInHand.length; i++){
                 if (this.clubsInHand[i].Suit === "club"){
-                    return this.clubsInHand[i]
+                    let lossingClub = this.clubsInHand[i]
+                    this.discard(this.clubsInHand, i)
+                    return lossingClub
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let spade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return spade
+                    }
             } 
         }
         }
         if(game.currentUserCard.Suit === "diamond"){
-            console.log('game.currentUserCard.Suit === "diamond"')
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if(this.diamondsInHand[i].Av > game.currentUserCard.Av){
                     let winningDiamond = this.diamondsInHand[i]
-                    // this.discard(this.diamondsInHand, i)
+                    this.discard(this.diamondsInHand, i)
                     return winningDiamond
                 } 
             }
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if (this.diamondsInHand[i].Suit === "diamond"){
-                    return this.diamondsInHand[i]
+                    let losingDiamond = this.diamondsInHand[i]
+                    this.discard(this.diamondsInHand, i)
+                    return losingDiamond
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                        let spade = this.spadesInHand[i]
+                        this.discard(this.spadesInHand, i)
+                        return spade
+                    }
             } 
         }
         }
         if(game.currentUserCard.Suit === "spade"){
-            console.log('game.currentUserCard.Suit === "spade"')
             for(i = 0; i < this.spadesInHand.length; i++){
                 if(this.spadesInHand[i].Av > game.currentUserCard.Av){
                     let winningSpade = this.spadesInHand[i]
-                    // this.discard(this.spadesInHand, i)
+                    this.discard(this.spadesInHand, i)
                     return winningSpade
                 } 
             }
             for(i = 0; i < this.spadesInHand.length; i++){
                 if (this.spadesInHand[i].Suit === "spade"){
-                    return this.spadesInHand[i]
+                    let losingSpade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return losingSpade
                 } else {
-                    return "No spades"
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let heart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return heart
+                    }
             } 
         }
         }
@@ -135,17 +149,18 @@ class Ai extends Player {
 
        computer2(){
         if(game.currentCpu1Card.Suit === "heart"){
-            console.log('game.currentCpu1Card.Suit === "heart"')
             for(i = 0; i < this.heartsInHand.length; i++){
                 if(this.heartsInHand[i].Av > game.currentCpu1Card.Av){
                 let winningHeart = this.heartsInHand[i]
-                // this.discard(this.heartsInHand, i)
+                this.discard(this.heartsInHand, i)
                 return winningHeart
                 }
                 }
             for(i = 0; i < this.heartsInHand.length; i++){
                 if (this.heartsInHand[i].Suit === "heart"){
-                    return this.heartsInHand[i]
+                    let losingHeart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return losingHeart
                 } else {
                     for(i = 0; i < this.spadesInHand.length; i++)
                     return this.spadesInHand[i]
@@ -153,55 +168,68 @@ class Ai extends Player {
         }
     }
         if(game.currentCpu1Card.Suit === "club"){
-            console.log('game.currentCpu1Card.Suit === "club"')
             for(i = 0; i < this.clubsInHand.length; i++){
                 if(this.clubsInHand[i].Av > game.currentCpu1Card.Av){
                     let winningClub = this.clubsInHand[i]
-                // this.discard(this.clubsInHand, i)
-                return winningClub
+                    this.discard(this.clubsInHand, i)
+                    return winningClub
                     } 
             }
             for(i = 0; i < this.clubsInHand.length; i++){
                 if (this.clubsInHand[i].Suit === "club"){
-                    return this.clubsInHand[i]
+                    let lossingClub = this.clubsInHand[i]
+                    this.discard(this.clubsInHand, i)
+                    return lossingClub
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let spade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return spade
+                    }
             } 
         }
         }
         if(game.currentCpu1Card.Suit === "diamond"){
-            console.log('game.currentCpu1Card.Suit === "diamond"')
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if(this.diamondsInHand[i].Av > game.currentCpu1Card.Av){
                     let winningDiamond = this.diamondsInHand[i]
-                    // this.discard(this.diamondsInHand, i)
+                    this.discard(this.diamondsInHand, i)
                     return winningDiamond
                 } 
             }
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if (this.diamondsInHand[i].Suit === "diamond"){
-                    return this.diamondsInHand[i]
+                    let losingDiamond = this.diamondsInHand[i]
+                    this.discard(this.diamondsInHand, i)
+                    return losingDiamond
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                        let spade = this.spadesInHand[i]
+                        this.discard(this.spadesInHand, i)
+                        return spade
+                    }
             } 
         }
         }
         if(game.currentCpu1Card.Suit === "spade"){
-            console.log('game.currentCpu1Card.Suit === "spade"')
             for(i = 0; i < this.spadesInHand.length; i++){
                 if(this.spadesInHand[i].Av > game.currentCpu1Card.Av){
                     let winningSpade = this.spadesInHand[i]
-                    // this.discard(this.spadesInHand, i)
+                    this.discard(this.spadesInHand, i)
                     return winningSpade
                 } 
             }
             for(i = 0; i < this.spadesInHand.length; i++){
                 if (this.spadesInHand[i].Suit === "spade"){
-                    return this.spadesInHand[i]
+                    let losingSpade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return losingSpade
                 } else {
-                    return "No spades"
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let heart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return heart
+                    }
             } 
         }
         }
@@ -210,17 +238,19 @@ class Ai extends Player {
     
     computer3(){
         if(game.currentTeammateCard.Suit === "heart"){
-            console.log('game.currentTeammateCard.Suit === "heart"')
+            
             for(i = 0; i < this.heartsInHand.length; i++){
                 if(this.heartsInHand[i].Av > game.currentTeammateCard.Av){
                 let winningHeart = this.heartsInHand[i]
-                // this.discard(this.heartsInHand, i)
+                this.discard(this.heartsInHand, i)
                 return winningHeart
                 }
                 }
             for(i = 0; i < this.heartsInHand.length; i++){
                 if (this.heartsInHand[i].Suit === "heart"){
-                    return this.heartsInHand[i]
+                    let losingHeart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return losingHeart
                 } else {
                     for(i = 0; i < this.spadesInHand.length; i++)
                     return this.spadesInHand[i]
@@ -228,55 +258,68 @@ class Ai extends Player {
         }
     }
         if(game.currentTeammateCard.Suit === "club"){
-            console.log('game.currentTeammateCard.Suit === "club"')
             for(i = 0; i < this.clubsInHand.length; i++){
                 if(this.clubsInHand[i].Av > game.currentTeammateCard.Av){
                     let winningClub = this.clubsInHand[i]
-                // this.discard(this.clubsInHand, i)
-                return winningClub
+                    this.discard(this.clubsInHand, i)
+                    return winningClub
                     } 
             }
             for(i = 0; i < this.clubsInHand.length; i++){
                 if (this.clubsInHand[i].Suit === "club"){
-                    return this.clubsInHand[i]
+                    let lossingClub = this.clubsInHand[i]
+                    this.discard(this.clubsInHand, i)
+                    return lossingClub
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let spade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return spade
+                    }
             } 
         }
         }
         if(game.currentTeammateCard.Suit === "diamond"){
-            console.log('game.currentTeammateCard.Suit === "diamond"')
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if(this.diamondsInHand[i].Av > game.currentTeammateCard.Av){
                     let winningDiamond = this.diamondsInHand[i]
-                    // this.discard(this.diamondsInHand, i)
+                    this.discard(this.diamondsInHand, i)
                     return winningDiamond
                 } 
             }
             for(i = 0; i < this.diamondsInHand.length; i++){
                 if (this.diamondsInHand[i].Suit === "diamond"){
-                    return this.diamondsInHand[i]
+                    let losingDiamond = this.diamondsInHand[i]
+                    this.discard(this.diamondsInHand, i)
+                    return losingDiamond
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                        let spade = this.spadesInHand[i]
+                        this.discard(this.spadesInHand, i)
+                        return spade
+                    }
             } 
         }
         }
         if(game.currentTeammateCard.Suit === "spade"){
-            console.log('game.currentTeammateCard.Suit === "spade"')
             for(i = 0; i < this.spadesInHand.length; i++){
                 if(this.spadesInHand[i].Av > game.currentTeammateCard.Av){
                     let winningSpade = this.spadesInHand[i]
-                    // this.discard(this.spadesInHand, i)
+                    this.discard(this.spadesInHand, i)
                     return winningSpade
                 } 
             }
             for(i = 0; i < this.spadesInHand.length; i++){
                 if (this.spadesInHand[i].Suit === "spade"){
-                    return this.spadesInHand[i]
+                    let losingSpade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return losingSpade
                 } else {
-                    return "No spades"
+                    for(i = 0; i < this.spadesInHand.length; i++){
+                    let heart = this.heartsInHand[i]
+                    this.discard(this.heartsInHand, i)
+                    return heart
+                    }
             } 
         }
         }
