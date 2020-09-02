@@ -72,7 +72,8 @@ class Ai extends Player {
                 if (this.heartsInHand[i].Suit === "heart"){
                     return this.heartsInHand[i]
                 } else {
-                    return "no Hearts"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
     }
@@ -89,7 +90,8 @@ class Ai extends Player {
                 if (this.clubsInHand[i].Suit === "club"){
                     return this.clubsInHand[i]
                 } else {
-                    return "No clubs"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
@@ -106,7 +108,8 @@ class Ai extends Player {
                 if (this.diamondsInHand[i].Suit === "diamond"){
                     return this.diamondsInHand[i]
                 } else {
-                    return "No diamonds"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
@@ -144,7 +147,8 @@ class Ai extends Player {
                 if (this.heartsInHand[i].Suit === "heart"){
                     return this.heartsInHand[i]
                 } else {
-                    return "No hearts"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
     }
@@ -161,7 +165,8 @@ class Ai extends Player {
                 if (this.clubsInHand[i].Suit === "club"){
                     return this.clubsInHand[i]
                 } else {
-                    return "No clubs"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
@@ -178,7 +183,8 @@ class Ai extends Player {
                 if (this.diamondsInHand[i].Suit === "diamond"){
                     return this.diamondsInHand[i]
                 } else {
-                    return "No diamonds"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
@@ -216,7 +222,8 @@ class Ai extends Player {
                 if (this.heartsInHand[i].Suit === "heart"){
                     return this.heartsInHand[i]
                 } else {
-                    return "No hearts"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
     }
@@ -233,7 +240,8 @@ class Ai extends Player {
                 if (this.clubsInHand[i].Suit === "club"){
                     return this.clubsInHand[i]
                 } else {
-                    return "No clubs"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
@@ -250,7 +258,8 @@ class Ai extends Player {
                 if (this.diamondsInHand[i].Suit === "diamond"){
                     return this.diamondsInHand[i]
                 } else {
-                    return "No diamonds"
+                    for(i = 0; i < this.spadesInHand.length; i++)
+                    return this.spadesInHand[i]
             } 
         }
         }
