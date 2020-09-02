@@ -20,6 +20,10 @@ class Player {
         const playedCard = this.hand[index]
         return playedCard
     }
+    discard(suitInHand, index){
+        const discard = suitInHand.splice(index, 1)
+        this.discardPile.push(discard)
+     }
 }
 
 class Ai extends Player {
@@ -53,11 +57,6 @@ class Ai extends Player {
         }
     }
 
-    discard(suitInHand, index){
-       const discard = suitInHand.splice(index, 1)
-       this.discardPile.push(discard)
-    }
-
     computer1(){
         if(game.currentUserCard.Suit === "heart"){
             for(i = 0; i < this.heartsInHand.length; i++){
@@ -73,8 +72,9 @@ class Ai extends Player {
                     this.discard(this.heartsInHand, i)
                     return losingHeart
                 } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
+                    for(i = 0; i < this.spadesInHand.length; i++){
                     return this.spadesInHand[i]
+                    }
             } 
         }
     }
@@ -467,6 +467,7 @@ const game = {
     playAHand(){
         this.currentUserCard = user.playCard(0)
         console.log(this.currentUserCard)
+        user.discard(user.hand, 0)
         this.currentCpu1Card = cpu1.computer1()
         console.log(this.currentCpu1Card)
         this.currentTeammateCard = teammate.computer2()
