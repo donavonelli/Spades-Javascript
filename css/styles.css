@@ -36,6 +36,25 @@ li {
   left: 150px;
 }
 
+.playingCards, .playingCards__User{
+  display: flex;  
+  flex-wrap: wrap;
+
+
+}
+
+#playingCards__Cpu1{
+  position: relative;
+  left: 0px;
+  top: 25%;
+}
+
+#playingCards__Cpu2{
+  position: relative;
+  right: 20%;
+  top: 25%;
+}
+
 /*
 *Source :https://git.generalassemb.ly/SEI-CC/SEI-CC-8/blob/master/resources/card-deck-css/css/cardstarter.css
 */

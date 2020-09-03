@@ -514,11 +514,10 @@ const game = {
         game.dealCards()
         cpu1.sortHand()
         teammate.sortHand()
-        cpu2.sortHand()
-        game.playAHand()
+        cpu2.sortHand() 
     },
 
-    playAHand(){
+    playAHand(userCard){
         this.currentUserCard = user.playCard(0)
         console.log(this.currentUserCard)
         user.discard(user.hand, 0)
@@ -580,14 +579,24 @@ const test = function () {
         const newDiv = $("<div />")
         newDiv.addClass(`card ${user.hand[i].cssClass}`)
         $("#playingCards__User").append(newDiv)
-        console.log(newDiv)
-        console.log($("#playingCards__User"))
+
+    }
+
+    for (i=0; i <cpu1.hand.length; i++){
+        const newDiv = $("<div />")
+        newDiv.addClass(`card ${cpu1.hand[i].cssClass}`)
+        $("#playingCards__Cpu1").append(newDiv)
+
     }
     // const $createCardUl = $('<ul class = "table">')
     // const $createLiUl = $('<li>')
     // const $cardDiv = $("div").eq(2);
     // $($createCardUl).append($createLiUl)
     // $($cardDiv).append($createCardUl)
+}
+
+const tryCard = function (userCard) {
+    console.log("Working")
 }
 
 const rules = function () {
@@ -600,3 +609,6 @@ const $startButton = $("#start")
 $startButton.on("click", test)
 const $rulesButton = $("#rules")
 $rulesButton.on("click", rules)
+const $card = $(".card")
+$card.on("click", tryCard)
+console.log($card)
