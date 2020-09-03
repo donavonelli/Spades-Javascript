@@ -71,11 +71,14 @@ class Ai extends Player {
                     let losingHeart = this.heartsInHand[i]
                     this.discard(this.heartsInHand, i)
                     return losingHeart
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                    return this.spadesInHand[i]
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.heartsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
     }
         if(game.currentUserCard.Suit === "club"){
@@ -91,13 +94,14 @@ class Ai extends Player {
                     let lossingClub = this.clubsInHand[i]
                     this.discard(this.clubsInHand, i)
                     return lossingClub
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                    let spade = this.spadesInHand[i]
-                    this.discard(this.spadesInHand, i)
-                    return spade
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.clubsInHand.length <= 0 ){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
         }
         if(game.currentUserCard.Suit === "diamond"){
@@ -113,13 +117,14 @@ class Ai extends Player {
                     let losingDiamond = this.diamondsInHand[i]
                     this.discard(this.diamondsInHand, i)
                     return losingDiamond
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                        let spade = this.spadesInHand[i]
-                        this.discard(this.spadesInHand, i)
-                        return spade
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.diamondsInHand.length <= 0 ){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
         }
         if(game.currentUserCard.Suit === "spade"){
@@ -161,10 +166,14 @@ class Ai extends Player {
                     let losingHeart = this.heartsInHand[i]
                     this.discard(this.heartsInHand, i)
                     return losingHeart
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++)
-                    return this.spadesInHand[i]
-            } 
+                }
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.heartsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
     }
         if(game.currentCpu1Card.Suit === "club"){
@@ -180,13 +189,14 @@ class Ai extends Player {
                     let lossingClub = this.clubsInHand[i]
                     this.discard(this.clubsInHand, i)
                     return lossingClub
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                    let spade = this.spadesInHand[i]
-                    this.discard(this.spadesInHand, i)
-                    return spade
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.clubsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
         }
         if(game.currentCpu1Card.Suit === "diamond"){
@@ -202,13 +212,14 @@ class Ai extends Player {
                     let losingDiamond = this.diamondsInHand[i]
                     this.discard(this.diamondsInHand, i)
                     return losingDiamond
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                        let spade = this.spadesInHand[i]
-                        this.discard(this.spadesInHand, i)
-                        return spade
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.diamondsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
         }
         if(game.currentCpu1Card.Suit === "spade"){
@@ -251,13 +262,14 @@ class Ai extends Player {
                     let losingHeart = this.heartsInHand[i]
                     this.discard(this.heartsInHand, i)
                     return losingHeart
-                } else {
-                    for(i = 0; i < this.heartsInHand.length; i++){
-                        let heart = this.heartsInHand[i]
-                        this.discard(this.heartsInHand, i)
-                        return heart
-                        }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.heartsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
     }
         if(game.currentTeammateCard.Suit === "club"){
@@ -273,13 +285,14 @@ class Ai extends Player {
                     let lossingClub = this.clubsInHand[i]
                     this.discard(this.clubsInHand, i)
                     return lossingClub
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                    let spade = this.spadesInHand[i]
-                    this.discard(this.spadesInHand, i)
-                    return spade
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+            if(this.clubsInHand === []){
+            let spade = this.spadesInHand[i]
+                this.discard(this.spadesInHand, i)
+                return spade
+            }
         }
         }
         if(game.currentTeammateCard.Suit === "diamond"){
@@ -295,14 +308,15 @@ class Ai extends Player {
                     let losingDiamond = this.diamondsInHand[i]
                     this.discard(this.diamondsInHand, i)
                     return losingDiamond
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                        let spade = this.spadesInHand[i]
-                        this.discard(this.spadesInHand, i)
-                        return spade
-                    }
+                } 
             } 
-        }
+            for(i = 0; i < this.spadesInHand.length; i++){
+                if(this.diamondsInHand === []){
+                let spade = this.spadesInHand[i]
+                    this.discard(this.spadesInHand, i)
+                    return spade
+                }
+            }
         }
         if(game.currentTeammateCard.Suit === "spade"){
             for(i = 0; i < this.spadesInHand.length; i++){
@@ -412,7 +426,7 @@ const deck = {
 /**
  * @description Pulls all of the data out of the 4 card suit arrays and brings it into one array
  */
-    generateDeck(){
+   /* generateDeck(){
         this.deck = []
         for(let i = 0; i < spades.length; i++){
             this.deck.push(spades[i])
@@ -426,7 +440,7 @@ const deck = {
         for(let i = 0; i < hearts.length; i++){
             this.deck.push(hearts[i])
         }
-    },
+    }, */
 /**
  * @author Dalton
  * @description shuffles the cards in the deck
@@ -441,7 +455,44 @@ const deck = {
       this.deck[length] = this.deck[index];
       this.deck[index] = element;
     }
-    }
+    },
+
+    generateDeck() {
+    this.deck = []
+    const suits = ["clubs", "spades", "hearts", "diamonds"]
+    suits.forEach((suit) => {
+        for (let i = 2; i <= 14; i++){
+            let cssClass = ""
+            let cardDescription = ""
+            if(i <= 9){
+                cssClass = `${suit.charAt(0)}0${i}`
+                cardDescription = `${i} of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            } else if (i === 10){
+                cssClass = `${suit.charAt(0)}${i}`
+                cardDescription = `${i} of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            } else if (i === 11){
+                cssClass = `${suit.charAt(0)}J`
+                cardDescription = `Jack of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            } else if (i === 12){
+                cssClass = `${suit.charAt(0)}Q`
+                cardDescription = `Queen of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            } else if (i === 13){
+                cssClass = `${suit.charAt(0)}K`
+                cardDescription = `King of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            } else if (i === 14){
+                cssClass = `${suit.charAt(0)}A`
+                cardDescription = `Ace of ${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
+            }
+            const card = {
+                Suit: suit,
+                Av: i,
+                cssClass: cssClass,
+                Dv: cardDescription,
+            }
+            this.deck.push(card)
+        }
+    });
+}
 }
 
 
@@ -461,10 +512,10 @@ const game = {
         deck.generateDeck()
         deck.shuffleCards()
         game.dealCards()
-        cpu1.sortHand()
-        teammate.sortHand()
-        cpu2.sortHand()
-        game.playAHand()
+        // cpu1.sortHand()
+        // teammate.sortHand()
+        // cpu2.sortHand()
+        // game.playAHand()
     },
 
     playAHand(){
@@ -501,7 +552,8 @@ const game = {
             teammate.hand.push(drawnCard3)
             cpu2.hand.push(drawnCard4)
         }
-    }
+    },
+
 }
 
 
@@ -523,6 +575,14 @@ const test = function () {
     $startButton.remove()
     $rulesButton.remove()
     CardTable.css("display", "block")
+    game.start()
+    for (i=0; i <user.hand.length; i++){
+        const newDiv = $("<div />")
+        newDiv.addClass(`card ${user.hand[i].cssClass}`)
+        $("#playingCards__User").append(newDiv)
+        console.log(newDiv)
+        console.log($("#playingCards__User"))
+    }
     // const $createCardUl = $('<ul class = "table">')
     // const $createLiUl = $('<li>')
     // const $cardDiv = $("div").eq(2);
@@ -533,6 +593,8 @@ const test = function () {
 const rules = function () {
     const displayRules = window.alert("This game is a faceoff between two pairs of teams. Each teammate sits directly across from them. The goal of the game is to play a card that has the highest value over your opponents but if your teammate is already winning to not outbeat your teammate. The value of the deck is, in descending order, : A , K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2. Whatever suit is first played must be maintained if the players have that suit. otherwise the player has the option to play any spade card in their hand to win the hand. Spades value follows the same values detailed earlier")
 }
+
+
 
 const $startButton = $("#start")
 $startButton.on("click", test)
