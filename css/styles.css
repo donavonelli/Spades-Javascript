@@ -2,14 +2,19 @@ body {
     background-color : green;
 }
 
-h1 {
+.logo {
     display: block;
     text-align: center;
     font-size: 50px;
+    position: relative;
+    top:10px;
 }
 
 
-/* Author: w3schools.com */
+
+
+
+
 .container {
   height: 200px;
   position: relative;

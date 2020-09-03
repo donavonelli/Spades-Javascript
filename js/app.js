@@ -1,11 +1,12 @@
 // Sanity Check
-console.log("Works")
 // PsuedoCode
 
 /*Player*/
 //Look at cards in their hand - property
 //play a card - Method
 //Keep track of points they have earned - property
+
+
 
 class Player {
     constructor(name, team){
@@ -24,6 +25,9 @@ class Player {
         const discard = suitInHand.splice(index, 1)
         this.discardPile.push(discard)
      }
+    getCardById(id){
+        return this.hand[id]
+    } 
 }
 
 class Ai extends Player {
@@ -140,13 +144,28 @@ class Ai extends Player {
                     let losingSpade = this.spadesInHand[i]
                     this.discard(this.spadesInHand, i)
                     return losingSpade
-                } else {
-                    for(i = 0; i < this.heartsInHand.length; i++){
-                    let heart = this.heartsInHand[i]
-                    this.discard(this.heartsInHand, i)
-                    return heart
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.heartsInHand.length; i++){
+                if(this.spadesInHand.length <= 0 ){
+                let heart = this.heartsInHand[i]
+                this.discard(this.heartsInHand, i)
+                return heart
+            }
+        }
+            for(i = 0; i < this.clubsInHand.length; i++){
+            if(this.spadesInHand.length <= 0 ){
+            let club = this.clubsInHand[i]
+                this.discard(this.clubsInHand, i)
+                return club
+            }
+        }
+            for(i = 0; i < this.diamondsInHand.length; i++){
+            if(this.spadesInHand.length <= 0 ){
+            let diamond = this.diamondsInHand[i]
+                this.discard(this.diamondsInHand, i)
+                return diamond
+            }
         }
         }
 
@@ -235,13 +254,28 @@ class Ai extends Player {
                     let losingSpade = this.spadesInHand[i]
                     this.discard(this.spadesInHand, i)
                     return losingSpade
-                } else {
-                    for(i = 0; i < this.spadesInHand.length; i++){
-                    let heart = this.heartsInHand[i]
-                    this.discard(this.heartsInHand, i)
-                    return heart
-                    }
-            } 
+                } 
+        }
+            for(i = 0; i < this.heartsInHand.length; i++){
+            if(this.spadesInHand.length <= 0 ){
+            let heart = this.heartsInHand[i]
+                this.discard(this.heartsInHand, i)
+                return heart
+            }
+        }
+            for(i = 0; i < this.clubsInHand.length; i++){
+            if(this.spadesInHand.length <= 0 ){
+            let club = this.clubsInHand[i]
+                this.discard(this.clubsInHand, i)
+                return club
+            }
+        }
+            for(i = 0; i < this.diamondsInHand.length; i++){
+            if(this.spadesInHand.length <= 0 ){
+            let diamond = this.diamondsInHand[i]
+                this.discard(this.diamondsInHand, i)
+                return diamond
+            }
         }
         }
 
@@ -331,13 +365,28 @@ class Ai extends Player {
                     let losingSpade = this.spadesInHand[i]
                     this.discard(this.spadesInHand, i)
                     return losingSpade
-                } else {
-                    for(i = 0; i < this.heartsInHand.length; i++){
-                    let heart = this.heartsInHand[i]
-                    this.discard(this.heartsInHand, i)
-                    return heart
-                    }
-            } 
+                }
+        }
+            for(i = 0; i < this.heartsInHand.length; i++){
+            if(this.heartsInHand.length <= 0 ){
+            let heart = this.heartsInHand[i]
+                this.discard(this.heartsInHand, i)
+                return heart
+            }
+        }
+            for(i = 0; i < this.clubsInHand.length; i++){
+            if(this.clubsInHand.length <= 0 ){
+            let club = this.clubsInHand[i]
+                this.discard(this.clubsInHand, i)
+                return club
+            }
+        }
+            for(i = 0; i < this.diamondsInHand.length; i++){
+            if(this.diamondsInHand.length <= 0 ){
+            let diamond = this.diamondsInHand[i]
+                this.discard(this.diamondsInHand, i)
+                return diamond
+            }
         }
         }
 
@@ -517,10 +566,10 @@ const game = {
         cpu2.sortHand() 
     },
 
-    playAHand(userCard){
-        this.currentUserCard = user.playCard(0)
+    playAHand(userCard, index){
+        this.currentUserCard = userCard;
         console.log(this.currentUserCard)
-        user.discard(user.hand, 0)
+        user.discard(user.hand, index)
         this.currentCpu1Card = cpu1.computer1()
         console.log(this.currentCpu1Card)
         this.currentTeammateCard = teammate.computer2()
@@ -575,17 +624,47 @@ const test = function () {
     $rulesButton.remove()
     CardTable.css("display", "block")
     game.start()
+    const $cpu1Img = $(`<img class = Cpu1 src = "./assets/Cpu1.png"/>`)
+    const $cpuContainer1 = $("#playingCards__Cpu1")
+    $cpuContainer1.append($cpu1Img)
+    const $teammateImg = $(`<img class = Teammate src = "./assets/Alien.png"/>`)
+    const $teammateContainer = $("#playingCards__Teammate")
+    $teammateContainer.append($teammateImg)
+    const $cpu2Img = $(`<img class = cpu src = "./assets/Cpu2.png"/>`)
+    const $cpuContainer2 = $("#playingCards__Cpu2")
+    $cpuContainer2.append($cpu2Img)
+    const $score = $("<h1 class = score></h1>")
+    $score.textContent = "Testing Again"
+    $("section").append($score)
     for (i=0; i <user.hand.length; i++){
         const newDiv = $("<div />")
         newDiv.addClass(`card ${user.hand[i].cssClass}`)
+        newDiv.attr("id", `${i}`)
+        newDiv.on("click", tryCard)
         $("#playingCards__User").append(newDiv)
+        
 
     }
 
     for (i=0; i <cpu1.hand.length; i++){
         const newDiv = $("<div />")
         newDiv.addClass(`card ${cpu1.hand[i].cssClass}`)
+        newDiv.css("z-index", `${i}`)
         $("#playingCards__Cpu1").append(newDiv)
+
+    }
+
+    for (i=0; i <teammate.hand.length; i++){
+        const newDiv = $("<div />")
+        newDiv.addClass(`card ${teammate.hand[i].cssClass}`)
+        $("#playingCards__Teammate").append(newDiv)
+
+    }
+
+    for (i=0; i <cpu2.hand.length; i++){
+        const newDiv = $("<div />")
+        newDiv.addClass(`card ${cpu2.hand[i].cssClass}`)
+        $("#playingCards__Cpu2").append(newDiv)
 
     }
     // const $createCardUl = $('<ul class = "table">')
@@ -595,8 +674,15 @@ const test = function () {
     // $($cardDiv).append($createCardUl)
 }
 
-const tryCard = function (userCard) {
-    console.log("Working")
+const tryCard = function (event) {
+    console.log(event.target.id)
+    const id = parseInt(event.target.id)
+    const cardObject = user.getCardById(id)
+    console.log(cardObject)
+    game.playAHand(cardObject, id)
+    const $target = event.target
+    $target.remove()
+    
 }
 
 const rules = function () {
@@ -609,6 +695,3 @@ const $startButton = $("#start")
 $startButton.on("click", test)
 const $rulesButton = $("#rules")
 $rulesButton.on("click", rules)
-const $card = $(".card")
-$card.on("click", tryCard)
-console.log($card)
