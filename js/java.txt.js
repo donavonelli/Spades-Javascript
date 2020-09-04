@@ -785,7 +785,7 @@ const test = function () {
     const $teammateImg = $(`<img class = Teammate src = "./assets/Alien.png"/>`)
     const $teammateContainer = $("#playingCards__Teammate")
     $teammateContainer.append($teammateImg)
-    const $cpu2Img = $(`<img class = Cpu2 src = "./assets/Cpu2.png"/>`)
+    const $cpu2Img = $(`<img class = cpu src = "./assets/Cpu2.png"/>`)
     const $cpuContainer2 = $("#playingCards__Cpu2")
     $cpuContainer2.append($cpu2Img)
     const $scoreA = TeamA.score;
@@ -805,11 +805,8 @@ const test = function () {
     for (i=0; i <cpu1.hand.length; i++){
         const newDiv = $("<div />")
         newDiv.addClass(`card ${cpu1.hand[i].cssClass}`)
-        newDiv.css("position", "absolute")
-        newDiv.css("top", "150px")
-        // newDiv.css("bottom", "0px")
-        newDiv.css("left", "0px")
-        $("#playingCards__Cpu1").prepend(newDiv)
+        newDiv.css("z-index", `${i}`)
+        $("#playingCards__Cpu1").append(newDiv)
 
     }
 
@@ -817,9 +814,8 @@ const test = function () {
         const newDiv = $("<div />")
         newDiv.addClass(`card ${teammate.hand[i].cssClass}`)
         newDiv.css("position", "absolute")
-        newDiv.css("top", "10px")
-        // newDiv.css("bottom", "0px")
-        newDiv.css("left", "600px")
+        newDiv.css("top", "200px")
+        newDiv.css("bottom", "0px")
         $("#playingCards__Teammate").prepend(newDiv)
 
 
@@ -828,11 +824,7 @@ const test = function () {
     for (i=0; i <cpu2.hand.length; i++){
         const newDiv = $("<div />")
         newDiv.addClass(`card ${cpu2.hand[i].cssClass}`)
-        newDiv.css("position", "absolute")
-        newDiv.css("top", "150px")
-        // newDiv.css("bottom", "0px")
-        newDiv.css("right", "125px")
-        $("#playingCards__Cpu2").prepend(newDiv)
+        $("#playingCards__Cpu2").append(newDiv)
 
     }
     // const $createCardUl = $('<ul class = "table">')

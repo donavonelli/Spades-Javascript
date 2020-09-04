@@ -42,7 +42,7 @@ li {
   left: 150px;
 }
 
-.playingCards, .playingCards__User{
+.playingCards{
   display: flex;  
   flex-wrap: wrap;
 
@@ -55,9 +55,9 @@ li {
 }
 
 #playingCards__Teammate{
-  position: relative;
+  /* position: relative;
   left: 41%;
-  bottom: 590px;
+  bottom: 590px; */
 }
 
 #playingCards__Cpu2{
@@ -69,10 +69,28 @@ li {
 
 }
 
+.Cpu1{
+  position: absolute;
+  /* right:10px; */
+  top: 100px;
+
+}
+
 .Teammate {
-    position: relative;
-    bottom: 0px;
-    top:200px;
+    position: absolute;
+    top:0px;
+    left:525px;
+}
+
+.Cpu2 {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+
+.playingCards__User{
+  position: absolute;
+  top:800px;
 }
 /*
 *Source :https://git.generalassemb.ly/SEI-CC/SEI-CC-8/blob/master/resources/card-deck-css/css/cardstarter.css
