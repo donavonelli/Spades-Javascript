@@ -540,7 +540,7 @@ class Ai extends Player {
                 }
         }
             for(i = 0; i < this.heartsInHand.length; i++){
-            if(this.heartsInHand.length <= 0 ){
+            if(this.spadesInHand.length <= 0 ){
             let heart = this.heartsInHand[i]
                 this.discard(this.heartsInHand, i)
                 return heart
