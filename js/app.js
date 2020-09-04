@@ -383,7 +383,7 @@ class Ai extends Player {
                 } 
         }
             for(i = 0; i < this.heartsInHand.length; i++){
-            if(this.clubsInHand.length <= 0 ){
+            if(this.spadesInHand.length <= 0 ){
             let heart = this.heartsInHand[i]
                 this.discard(this.heartsInHand, i)
                 return heart
@@ -540,7 +540,7 @@ class Ai extends Player {
                 }
         }
             for(i = 0; i < this.heartsInHand.length; i++){
-            if(this.heartsInHand.length <= 0 ){
+            if(this.spadesInHand.length <= 0 ){
             let heart = this.heartsInHand[i]
                 this.discard(this.heartsInHand, i)
                 return heart
@@ -689,6 +689,7 @@ const game = {
     },
 
     determineWinner(){
+        
         if(this.currentUserCard.Av > this.currentCpu1Card.Av && this.currentUserCard.Av >this.currentCpu2Card.Av || this.currentTeammateCard.Av > this.currentCpu1Card.Av && this.currentTeammateCard.Av > this.currentCpu2Card.Av){
             console.log("Team A wins the hand")
             TeamA.score++
@@ -697,6 +698,15 @@ const game = {
             console.log ("Team B wins the hand")
             TeamB.score++
             $("#teamBScore").text(`Team B: ${TeamB.score}`)
+        }
+        if(user.hand.length <= 0){
+            if(TeamA.score > TeamB.score){
+                const $teamAWins = $("<h1>Team A Wins!</h1>")
+                $("section").append($teamAWins)
+            } else{
+                const $teamBWins = $("<h1>Team B Wins!</h1>")
+                $("section").append($teamBWins)
+            }
         }
     },
 
@@ -770,6 +780,9 @@ const test = function () {
         newDiv.addClass(`card ${user.hand[i].cssClass}`)
         newDiv.attr("id", `${i}`)
         newDiv.on("click", tryCard)
+        newDiv.css("position", "relative")
+        newDiv.css("top", "425px")
+        newDiv.css("left","200px")
         $("#playingCards__User").append(newDiv)
         
 
@@ -781,7 +794,7 @@ const test = function () {
         newDiv.css("position", "absolute")
         newDiv.css("top", "150px")
         // newDiv.css("bottom", "0px")
-        newDiv.css("left", "0px")
+        newDiv.css("left", "40px")
         $("#playingCards__Cpu1").prepend(newDiv)
 
     }
@@ -802,9 +815,9 @@ const test = function () {
         const newDiv = $("<div />")
         newDiv.addClass(`card ${cpu2.hand[i].cssClass}`)
         newDiv.css("position", "absolute")
-        newDiv.css("top", "150px")
+        newDiv.css("top", "155px")
         // newDiv.css("bottom", "0px")
-        newDiv.css("right", "125px")
+        newDiv.css("left", "50px")
         $("#playingCards__Cpu2").prepend(newDiv)
 
     }
