@@ -701,10 +701,10 @@ const game = {
         }
         if(user.hand.length <= 0){
             if(TeamA.score > TeamB.score){
-                const $teamAWins = $("<h1>")
+                const $teamAWins = $("<h1>Team A Wins!</h1>")
                 $("section").append($teamAWins)
             } else{
-                const $teamBWins = $("<h1>")
+                const $teamBWins = $("<h1>Team B Wins!</h1>")
                 $("section").append($teamBWins)
             }
         }
