@@ -383,7 +383,7 @@ class Ai extends Player {
                 } 
         }
             for(i = 0; i < this.heartsInHand.length; i++){
-            if(this.clubsInHand.length <= 0 ){
+            if(this.spadesInHand.length <= 0 ){
             let heart = this.heartsInHand[i]
                 this.discard(this.heartsInHand, i)
                 return heart
@@ -689,6 +689,7 @@ const game = {
     },
 
     determineWinner(){
+        
         if(this.currentUserCard.Av > this.currentCpu1Card.Av && this.currentUserCard.Av >this.currentCpu2Card.Av || this.currentTeammateCard.Av > this.currentCpu1Card.Av && this.currentTeammateCard.Av > this.currentCpu2Card.Av){
             console.log("Team A wins the hand")
             TeamA.score++
@@ -697,6 +698,15 @@ const game = {
             console.log ("Team B wins the hand")
             TeamB.score++
             $("#teamBScore").text(`Team B: ${TeamB.score}`)
+        }
+        if(user.hand.length <= 0){
+            if(TeamA.score > TeamB.score){
+                const $teamAWins = $("<h1>")
+                $("section").append($teamAWins)
+            } else{
+                const $teamBWins = $("<h1>")
+                $("section").append($teamBWins)
+            }
         }
     },
 
