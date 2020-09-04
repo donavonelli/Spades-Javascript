@@ -220,7 +220,7 @@ class Ai extends Player {
 
     }
 
-       computer2(){
+    computer2(){
         if(game.currentCpu1Card.Suit === "hearts"){
             for(i = 0; i < this.heartsInHand.length; i++){
                 if(this.heartsInHand[i].Av > game.currentCpu1Card.Av){
@@ -701,6 +701,7 @@ const game = {
 
     start(){
         deck.generateDeck()
+        game.fixSpadesValues()
         deck.shuffleCards()
         game.dealCards()
         cpu1.sortHand()
@@ -745,6 +746,14 @@ const game = {
             cpu2.hand.push(drawnCard4)
         }
     },
+
+    fixSpadesValues(){
+        for (i=0;i < deck.deck.length; i++){
+            if(deck.deck[i].Suit === "spades"){
+                deck.deck[i].Av += 13 
+            }
+        }
+    }
 
 }
 
