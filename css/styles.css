@@ -83,8 +83,8 @@ li {
 
 .Cpu2 {
   position: absolute;
-  right: 40px;
-  top: 20px;
+  left: 0px;
+  top: 70px;
 }
 
 .playingCards__User{

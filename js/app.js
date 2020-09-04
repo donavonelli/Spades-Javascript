@@ -805,9 +805,9 @@ const test = function () {
         const newDiv = $("<div />")
         newDiv.addClass(`card ${cpu2.hand[i].cssClass}`)
         newDiv.css("position", "absolute")
-        newDiv.css("top", "150px")
+        newDiv.css("top", "155px")
         // newDiv.css("bottom", "0px")
-        newDiv.css("right", "125px")
+        newDiv.css("left", "50px")
         $("#playingCards__Cpu2").prepend(newDiv)
 
     }
