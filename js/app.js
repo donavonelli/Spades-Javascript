@@ -8,6 +8,8 @@
 
 
 /**
+ * @class
+ * @description Class that each player is built from
  */
 class Player {
     constructor(name, team){
@@ -17,25 +19,45 @@ class Player {
         this.hand = [];
         this.discardPile = [];
     }
-
+    /**
+    * @method
+    * @description returns a card object in players hand
+    */
     playCard(index){
         const playedCard = this.hand[index]
         return playedCard
     }
+    /**
+     * @method
+     * @description discards the played card out of the players hand
+     */
     discard(suitInHand, index){
         const test = suitInHand.map(c=>c) 
         const discard = suitInHand.splice(index, 1)
         this.discardPile.push(discard)
      }
+     /**
+      * @method
+      * @description assists in DOM manipulation for picking a card on screen
+      * @param {index of the card} id 
+      */
     getCardById(id){
         return this.hand[id]
     } 
-
+     /**
+      * @method
+      * @description assists in DOM manipulation for picking a card on screen
+      * @param {index of the card} id 
+      */
     getCardByClass(cssClass){
         return this.hand.find(card => card.cssClass === cssClass)
     }
 }
-
+/**
+ * @class
+ * @extends Player
+ * @description Used to determine Ai behavior in the card game
+ */
 class Ai extends Player {
     constructor(name, team){
         super(name,team);
@@ -44,14 +66,11 @@ class Ai extends Player {
         this.diamondsInHand = []
         this.spadesInHand = []
     }
-    playAiCard(){
-        // const randomNumber = Math.floor(Math.random() * Math.floor(13));
-        const playedCard = this.hand[0] //for now cpu will choose first card  
-        const discardCard = this.hand.splice(0, 1)
-        this.discardPile += discardCard
-        return playedCard
-    }
 
+/**
+ * @method
+ * @description function that sorts each Ai's hand into their respective suits making it easier to apply logic to them
+ */
     sortHand(){
         for(i=0; i < this.hand.length; i++){
             if(this.hand[i].Suit === "hearts"){
@@ -67,6 +86,10 @@ class Ai extends Player {
         }
     }
 
+/**
+ * @method
+ * @description dictates computers 1 logic playing off of the user
+ */
     computer1(){
         if(game.currentUserCard.Suit === "hearts"){
             for(i = 0; i < this.heartsInHand.length; i++){
@@ -220,7 +243,10 @@ class Ai extends Player {
         }
 
     }
-
+/**
+ * @method
+ * @description dictates teammates logic playing off of computer 1
+ */
     computer2(){
         if(game.currentCpu1Card.Suit === "hearts"){
             for(i = 0; i < this.heartsInHand.length; i++){
@@ -380,7 +406,10 @@ class Ai extends Player {
         }
 
     }
-    
+/**
+ * @method
+ * @description dictates computers 2 logic playing off of teammate
+ */
     computer3(){
         if(game.currentTeammateCard.Suit === "hearts"){
             
@@ -536,12 +565,17 @@ class Ai extends Player {
     }
 }
 
-
+/**
+ * @description Keeps track of the user's team points
+ */
 const TeamA = {
     score:  0
 
 }
 
+/**
+ * @description Keeps track of the opposing team points
+ */
 const TeamB = {
     score: 0
     
@@ -550,89 +584,11 @@ const TeamB = {
 /*Deck*/
 //Have an array of all the cards -property
 //Av stands for actual value Dv stands for display value
-const spades = [
-    {"Dv": "2 of Spade", "Av": 2, "Suit": "spade"},
-    {"Dv": "3 of Spade", "Av": 3, "Suit": "spade"},
-    {"Dv": "4 of Spade", "Av": 4, "Suit": "spade"},
-    {"Dv": "5 of Spade", "Av": 5, "Suit": "spade"},
-    {"Dv": "6 of Spade", "Av": 6, "Suit": "spade"},
-    {"Dv": "7 of Spade", "Av": 7, "Suit": "spade"},
-    {"Dv": "8 of Spade", "Av": 8, "Suit": "spade"},
-    {"Dv": "9 of Spade", "Av": 9, "Suit": "spade"},
-    {"Dv": "10 of Spade", "Av": 10, "Suit": "spade"},
-    {"Dv": "Jack of Spade", "Av": 11, "Suit": "spade"},
-    {"Dv": "Queen of Spade", "Av": 12, "Suit": "spade"},
-    {"Dv": "King of Spade", "Av": 13, "Suit": "spade"},
-    {"Dv": "Ace of Spade", "Av": 14, "Suit": "spade"},
-]
 
-const diamonds = [
-    {"Dv": "2 of Diamond", "Av": 2, "Suit": "diamond"},
-    {"Dv": "3 of Diamond", "Av": 3, "Suit": "diamond"},
-    {"Dv": "4 of Diamond", "Av": 4, "Suit": "diamond"},
-    {"Dv": "5 of Diamond", "Av": 5, "Suit": "diamond"},
-    {"Dv": "6 of Diamond", "Av": 6, "Suit": "diamond"},
-    {"Dv": "7 of Diamond", "Av": 7, "Suit": "diamond"},
-    {"Dv": "8 of Diamond", "Av": 8, "Suit": "diamond"},
-    {"Dv": "9 of Diamond", "Av": 9, "Suit": "diamond"},
-    {"Dv": "10 of Diamond", "Av": 10, "Suit": "diamond"},
-    {"Dv": "Jack of Diamond", "Av": 11, "Suit": "diamond"},
-    {"Dv": "Queen of Diamond", "Av": 12, "Suit": "diamond"},
-    {"Dv": "King of Diamond", "Av": 13, "Suit": "diamond"},
-    {"Dv": "Ace of Diamond", "Av": 14, "Suit": "diamond"},
-]
-
-const clubs = [
-    {"Dv": "2 of Club", "Av": 2, "Suit": "club"},
-    {"Dv": "3 of Club", "Av": 3, "Suit": "club"},
-    {"Dv": "4 of Club", "Av": 4, "Suit": "club"},
-    {"Dv": "5 of Club", "Av": 5, "Suit": "club"},
-    {"Dv": "6 of Club", "Av": 6, "Suit": "club"},
-    {"Dv": "7 of Club", "Av": 7, "Suit": "club"},
-    {"Dv": "8 of Club", "Av": 8, "Suit": "club"},
-    {"Dv": "9 of Club", "Av": 9, "Suit": "club"},
-    {"Dv": "10 of Club", "Av": 10, "Suit": "club"},
-    {"Dv": "Jack of Club", "Av": 11, "Suit": "club"},
-    {"Dv": "Queen of Club", "Av": 12, "Suit": "club"},
-    {"Dv": "King of Club", "Av": 13, "Suit": "club"},
-    {"Dv": "Ace of Club", "Av": 14, "Suit": "club"},
-]
-const hearts = [
-    {"Dv": "2 of Heart", "Av": 2, "Suit": "heart"},
-    {"Dv": "3 of Heart", "Av": 3, "Suit": "heart"},
-    {"Dv": "4 of Heart", "Av": 4, "Suit": "heart"},
-    {"Dv": "5 of Heart", "Av": 5, "Suit": "heart"},
-    {"Dv": "6 of Heart", "Av": 6, "Suit": "heart"},
-    {"Dv": "7 of Heart", "Av": 7, "Suit": "heart"},
-    {"Dv": "8 of Heart", "Av": 8, "Suit": "heart"},
-    {"Dv": "9 of Heart", "Av": 9, "Suit": "heart"},
-    {"Dv": "10 of Heart", "Av": 10, "Suit": "heart"},
-    {"Dv": "Jack of Heart", "Av": 11, "Suit": "heart"},
-    {"Dv": "Queen of Heart", "Av": 12, "Suit": "heart"},
-    {"Dv": "King of Heart", "Av": 13, "Suit": "heart"},
-    {"Dv": "Ace of Heart", "Av": 14, "Suit": "heart"},
-]
 
 const deck = {
     deck : [],
-/**
- * @description Pulls all of the data out of the 4 card suit arrays and brings it into one array
- */
-   /* generateDeck(){
-        this.deck = []
-        for(let i = 0; i < spades.length; i++){
-            this.deck.push(spades[i])
-        }
-        for(let i = 0; i < diamonds.length; i++){
-            this.deck.push(diamonds[i])
-        }
-        for(let i = 0; i < clubs.length; i++){
-            this.deck.push(clubs[i])
-        }
-        for(let i = 0; i < hearts.length; i++){
-            this.deck.push(hearts[i])
-        }
-    }, */
+
 /**
  * @author Dalton
  * @description shuffles the cards in the deck
@@ -649,6 +605,11 @@ const deck = {
     }
     },
 
+
+    /**
+     * @function
+     * @description generates the deck dynamicaly, assigning a each card a number value, a suit, a css class, and a card description
+     */
     generateDeck() {
     this.deck = []
     const suits = ["clubs", "spades", "hearts", "diamonds"]
@@ -694,6 +655,10 @@ const deck = {
 // Keep track of points won - property
 // 
 
+
+/**
+ * @description game object that holds all functions and objects pertaining to the game. This includes starting the game, fixing the spade values and playing a hand
+ */
 const game = {
     currentUserCard:"",
     currentCpu1Card : "",
@@ -760,7 +725,9 @@ const game = {
 
 
 
-
+/**
+ * @description Builds each player from their respective Player and Ai Classes
+ */
 const user = new Player("Don", "A")
 const cpu1 = new Ai("CPU1", "B")
 const teammate = new Ai("Teammate", "A")
@@ -768,9 +735,15 @@ const cpu2 = new Ai("CPU2", "B")
 
 
 /*Dom Manipulation */
+
+
 const CardTable = $(".playingCards ul.table")
 CardTable.css("display", "none")
 
+/**
+ * @function
+ * @description This gives functionality to the start button, removing the buttons and logo from the screen, and generating and dealing out the each players cards
+ */
 const test = function () {
     console.log("Testing one two three")
     $startButton.remove()
@@ -841,7 +814,11 @@ const test = function () {
     // $($createCardUl).append($createLiUl)
     // $($cardDiv).append($createCardUl)
 }
-
+/**
+ * @function
+ * @description This gives functionality to each card to allow them to be used as an arguement that the cpus can use
+ * @param {The clicked user card} event 
+ */
 const tryCard = function (event) {
     const cardEls = event.target.parentNode.children
     const id = Array.from(cardEls).indexOf(event.target)
@@ -854,7 +831,10 @@ const tryCard = function (event) {
     $target.remove()
     
 }
-
+/**
+ * @function
+ * @description Gives functionality to the rules button to display the rules to spades
+ */
 const rules = function () {
     const displayRules = window.alert("This game is a faceoff between two pairs of teams. Each teammate sits directly across from them. The goal of the game is to play a card that has the highest value over your opponents but if your teammate is already winning to not outbeat your teammate. The value of the deck is, in descending order, : A , K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2. Whatever suit is first played must be maintained if the players have that suit. otherwise the player has the option to play any spade card in their hand to win the hand. Spades value follows the same values detailed earlier")
 }
