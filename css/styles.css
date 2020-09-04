@@ -1,68 +1,67 @@
 body {
-    background-color : green;
+  background-color : green;
 }
 
 .logo {
-    display: block;
-    text-align: center;
-    font-size: 50px;
-    position: relative;
-    top:10px;
-    margin: 0;
+  display: block;
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  top:50px;
+  margin: 0;
 }
-
 
 
 
 
 
 .container {
-  height: 200px;
-  position: relative;
-  border: 3px solid green;
+height: 200px;
+position: relative;
+
 }
 
 .center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
 }
 
 #start {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 li {
-  text-align :center;
-  max-width: 700px;
-  position: relative;
-  left: 150px;
+text-align :center;
+max-width: 700px;
+position: relative;
+left: 150px;
 }
 
 .playingCards{
-  display: flex;  
-  flex-wrap: wrap;
+display: flex;  
+flex-wrap: wrap;
 
 
 }
 
 #playingCards__Cpu1{
-  position: relative;
-  left: 0px;
+position: relative;
+left: 0px;
 }
 
 #playingCards__Teammate{
-  /* position: relative;
-  left: 41%;
-  bottom: 590px; */
+/* position: relative;
+left: 41%;
+bottom: 590px; */
 }
 
 #playingCards__Cpu2{
-  position: relative;
-  left: 84%;
+position: relative;
+left: 84%;
 }
 
 .choosen {
@@ -70,27 +69,27 @@ li {
 }
 
 .Cpu1{
-  position: absolute;
-  /* right:10px; */
-  top: 100px;
+position: absolute;
+/* right:10px; */
+top: 100px;
 
 }
 
 .Teammate {
-    position: absolute;
-    top:0px;
-    left:525px;
+  position: absolute;
+  top:0px;
+  left:525px;
 }
 
 .Cpu2 {
-  position: absolute;
-  right: 40px;
-  top: 20px;
+position: absolute;
+left: 0px;
+top: 70px;
 }
 
 .playingCards__User{
-  position: absolute;
-  top:800px;
+position: absolute;
+top:800px;
 }
 /*
 *Source :https://git.generalassemb.ly/SEI-CC/SEI-CC-8/blob/master/resources/card-deck-css/css/cardstarter.css
