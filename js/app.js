@@ -784,7 +784,7 @@ const test = function () {
         newDiv.css("position", "absolute")
         newDiv.css("top", "150px")
         // newDiv.css("bottom", "0px")
-        newDiv.css("left", "0px")
+        newDiv.css("left", "40px")
         $("#playingCards__Cpu1").prepend(newDiv)
 
     }
