@@ -770,6 +770,9 @@ const test = function () {
         newDiv.addClass(`card ${user.hand[i].cssClass}`)
         newDiv.attr("id", `${i}`)
         newDiv.on("click", tryCard)
+        newDiv.css("position", "relative")
+        newDiv.css("top", "425px")
+        newDiv.css("left","200px")
         $("#playingCards__User").append(newDiv)
         
 
