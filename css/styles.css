@@ -8,6 +8,7 @@ body {
     font-size: 50px;
     position: relative;
     top:10px;
+    margin: 0;
 }
 
 
@@ -51,15 +52,28 @@ li {
 #playingCards__Cpu1{
   position: relative;
   left: 0px;
-  top: 25%;
+}
+
+#playingCards__Teammate{
+  position: relative;
+  left: 41%;
+  bottom: 590px;
 }
 
 #playingCards__Cpu2{
   position: relative;
-  right: 20%;
-  top: 25%;
+  left: 84%;
 }
 
+.choosen {
+
+}
+
+.Teammate {
+    position: relative;
+    bottom: 0px;
+    top:200px;
+}
 /*
 *Source :https://git.generalassemb.ly/SEI-CC/SEI-CC-8/blob/master/resources/card-deck-css/css/cardstarter.css
 */
